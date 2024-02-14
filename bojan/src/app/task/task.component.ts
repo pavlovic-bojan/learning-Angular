@@ -19,10 +19,12 @@ export class TaskComponent {
     console.log(this.createUserModal)
     this.allUsers.push(structuredClone(this.createUserModal))
     console.log(this.allUsers)
+    localStorage.setItem('users', JSON.stringify(this.allUsers))
   }
 
   deleteUserToTable(index: number) {
     this.allUsers.splice(index, 1)
+    localStorage.setItem('users', JSON.stringify(this.allUsers))
   }
 
 }
