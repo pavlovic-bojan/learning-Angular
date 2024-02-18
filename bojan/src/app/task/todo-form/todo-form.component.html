@@ -1,0 +1,6 @@
+<form action="">
+    <input class="form-control" type="text" name="first" id="first" placeholder="Add First Name" [(ngModel)]="createUserModal.firstName">
+    <input class="form-control mt-2" type="text" name="last" id="last" placeholder="Add Last Name" [(ngModel)]="createUserModal.lastName">
+    <input class="form-control mt-2" type="datetime-local" id="birthdaytime" name="birthdaytime" [(ngModel)]="createUserModal.birthdaytime">
+    <button class="btn btn-primary mt-2" type="submit" (click)="addUserToTable()">Add User To Table</button>
+</form>
