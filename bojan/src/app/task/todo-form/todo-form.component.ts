@@ -9,14 +9,15 @@ export class TodoFormComponent {
 
   @Output() onFormSubmit = new EventEmitter<any>();
 
-  createUserModal = {
-    firstName: '',
-    lastName: '',
-    birthdaytime: ''
+  createTaskModal = {
+    task: '',
+    description: '',
+    date: '',
+    priority: ''
   }
 
-  addUserToTable() {
-    this.onFormSubmit.emit(this.createUserModal)
+  addTaskToTable() {
+    this.onFormSubmit.emit(this.createTaskModal)
   }
 
 }

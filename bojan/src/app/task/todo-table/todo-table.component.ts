@@ -6,11 +6,11 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./todo-table.component.css']
 })
 export class TodoTableComponent {
-  @Input() allUsers: any = [];
+  @Input() allTask: any = [];
 
-  deleteUserToTable(index: number) {
-    this.allUsers.splice(index, 1)
-    localStorage.setItem('users', JSON.stringify(this.allUsers))
+  deleteTaskToTable(index: number) {
+    this.allTask.splice(index, 1)
+    localStorage.setItem('task', JSON.stringify(this.allTask))
   }
 
   ngOnInit(): void {
@@ -18,10 +18,10 @@ export class TodoTableComponent {
   }
 
   retrieveDataFromLocalStorage(): void {
-    const storedData = localStorage.getItem('users');
+    const storedData = localStorage.getItem('task');
     if (storedData) {
       try {
-        this.allUsers = JSON.parse(storedData);
+        this.allTask = JSON.parse(storedData);
       } catch (error) {
         console.error('Error parsing data from local storage:', error);
       }

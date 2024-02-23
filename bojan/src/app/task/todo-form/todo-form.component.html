@@ -1,6 +1,15 @@
 <form action="">
-    <input class="form-control" type="text" name="first" id="first" placeholder="Add First Name" [(ngModel)]="createUserModal.firstName">
-    <input class="form-control mt-2" type="text" name="last" id="last" placeholder="Add Last Name" [(ngModel)]="createUserModal.lastName">
-    <input class="form-control mt-2" type="datetime-local" id="birthdaytime" name="birthdaytime" [(ngModel)]="createUserModal.birthdaytime">
-    <button class="btn btn-primary mt-2" type="submit" (click)="addUserToTable()">Add User To Table</button>
+    <input class="form-control" type="text" name="task" id="task" placeholder="Add Task Name" [(ngModel)]="createTaskModal.task">
+    <textarea class="form-control mt-2" id="description" name="description" placeholder="Add Description Name" rows="3" [(ngModel)]="createTaskModal.description"></textarea>
+    <div class="d-flex mt-2 align-items-center">
+        <label for="date">Target Date:</label>
+        <input class="form-control mt-2" type="datetime-local" id="date" name="date" [(ngModel)]="createTaskModal.date" placeholder="Target Date">
+    </div>
+    <select class="form-select mt-2" name="priority" id="priority" [(ngModel)]="createTaskModal.priority">
+        <option value="" disabled selected>Select Priority</option>
+        <option value="red">High</option>
+        <option value="yellow">Medium</option>
+        <option value="green">Low</option>
+    </select>
+    <button class="btn btn-primary mt-2" type="submit" (click)="addTaskToTable()">Add Task To Table</button>
 </form>

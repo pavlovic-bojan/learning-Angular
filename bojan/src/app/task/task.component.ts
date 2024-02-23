@@ -8,12 +8,12 @@ import { Component } from '@angular/core'
 export class TaskComponent {
   name='Task 1'
 
-  allUsers:any []= []
+  allTask:any []= []
 
-  addUserToTable(event: any) {
+  addTaskToTable(event: any) {
     console.log("in parent component",event)
-    this.allUsers.push(structuredClone(event))
-    localStorage.setItem('users', JSON.stringify(this.allUsers))
+    this.allTask.push(structuredClone(event))
+    localStorage.setItem('task', JSON.stringify(this.allTask))
   }
 
 }

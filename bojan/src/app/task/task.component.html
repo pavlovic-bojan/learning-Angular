@@ -4,10 +4,10 @@
     </div>
     <div class="row mt-5">
         <div class="col-6">
-            <app-todo-form (onFormSubmit)="addUserToTable($event)"></app-todo-form>
+            <app-todo-form (onFormSubmit)="addTaskToTable($event)"></app-todo-form>
           </div>
           <div class="col-6">
-            <app-todo-table [allUsers]="allUsers"></app-todo-table>
+            <app-todo-table [allTask]="allTask"></app-todo-table>
           </div>
     </div>
 </div>
