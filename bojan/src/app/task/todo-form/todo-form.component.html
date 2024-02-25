@@ -1,6 +1,6 @@
 <form action="">
-    <input class="form-control" type="text" name="task" id="task" placeholder="Add Task Name" [(ngModel)]="createTaskModal.task">
-    <textarea class="form-control mt-2" id="description" name="description" placeholder="Add Description Name" rows="3" [(ngModel)]="createTaskModal.description"></textarea>
+    <input class="form-control" type="text" name="task" id="task" placeholder="Add Task Title" [(ngModel)]="createTaskModal.task">
+    <textarea class="form-control mt-2" id="description" name="description" placeholder="Add Task Description" rows="3" [(ngModel)]="createTaskModal.description"></textarea>
     <div class="d-flex mt-2 align-items-center">
         <label for="date">Target Date:</label>
         <input class="form-control mt-2" type="datetime-local" id="date" name="date" [(ngModel)]="createTaskModal.date" placeholder="Target Date">
