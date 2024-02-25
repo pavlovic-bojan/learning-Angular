@@ -6,7 +6,7 @@ import { Component } from '@angular/core'
   styleUrls: ['./task.component.css']
 })
 export class TaskComponent {
-  name='Task 1'
+  name='Task Assignment'
 
   allTask:any []= []
 

@@ -15,8 +15,29 @@
           <td>{{row.task}}</td>
           <td>{{row.description}}</td>
           <td>{{ row.date | date: 'full' : 'America/Los_Angeles' : 'en-US' }}</td>
-          <td>{{row.priority}}</td>
-          <td><button (click)="deleteTaskToTable(i)"><i class="fa fa-handshake-o" aria-hidden="false" style="color: red;"></i></button></td>
+          <td>
+            <span [ngClass]="{
+                'bg-danger': row.priority === 'High',
+                'bg-warning': row.priority === 'Medium',
+                'bg-success': row.priority === 'Low'
+              }" style="
+                padding: 10px; 
+                border-radius: 6px;
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                width: 100%; 
+                height: 100%;
+                color: white;
+              ">
+                {{row.priority}}
+              </span>
+          </td>
+          <td>
+                <button (click)="deleteTaskToTable(i)"  style="background-color: transparent; border: none;">
+                    <i class="fa fa-trash" aria-hidden="false" aria-hidden="false" style="color: red; background-color: transparent; border: none;"></i>
+                </button>
+          </td>
       </tr>
   </tbody>
 </table>
