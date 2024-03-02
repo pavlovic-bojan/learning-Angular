@@ -1,15 +1,29 @@
-<form action="">
-    <input class="form-control" type="text" name="task" id="task" placeholder="Add Task Title" [(ngModel)]="createTaskModal.task">
-    <textarea class="form-control mt-2" id="description" name="description" placeholder="Add Task Description" rows="3" [(ngModel)]="createTaskModal.description"></textarea>
+<form action="" #taskForm="ngForm">
+    <input class="form-control rounded-pill" type="text" name="task" id="task" placeholder="Add Task Title" [(ngModel)]="createTaskModal.task" required minlength="5" #taskInput="ngModel" [ngClass]="{'border border-danger': taskInput.invalid && (taskInput.dirty || taskInput.touched)}">
+    <div *ngIf="taskInput.invalid && (taskInput.dirty || taskInput.touched)" class="text-danger">
+        <div *ngIf="taskInput.errors?.['required']">Task Title is required</div>
+        <div *ngIf="taskInput.errors?.['minlength']">Task Title must be at least 5 characters long</div>
+    </div>
+    <textarea class="form-control mt-2 rounded" id="description" name="description" placeholder="Add Task Description" rows="3" [(ngModel)]="createTaskModal.description" required minlength="100" #taskDescriptionInput="ngModel" [ngClass]="{'border border-danger': taskDescriptionInput.invalid && (taskDescriptionInput.dirty || taskDescriptionInput.touched)}"></textarea>
+    <div *ngIf="taskDescriptionInput.invalid && (taskDescriptionInput.dirty || taskDescriptionInput.touched)" class="text-danger">
+        <div *ngIf="taskDescriptionInput.errors?.['required']">Task description is required</div>
+        <div *ngIf="taskDescriptionInput.errors?.['minlength']">Task description must be at least 100 characters long</div>
+    </div>
     <div class="d-flex mt-2 align-items-center">
         <label for="date">Target Date:</label>
-        <input class="form-control mt-2" type="datetime-local" id="date" name="date" [(ngModel)]="createTaskModal.date" placeholder="Target Date">
+        <input class="form-control mt-2 rounded-pill" type="datetime-local" id="date" name="date" [(ngModel)]="createTaskModal.date" placeholder="Target Date" required #taskDateInput="ngModel" [ngClass]="{'border border-danger': taskDateInput.invalid && (taskDateInput.dirty || taskDateInput.touched)}">
     </div>
-    <select class="form-select mt-2" name="priority" id="priority" [(ngModel)]="createTaskModal.priority">
+    <div *ngIf="taskDateInput.invalid && (taskDateInput.dirty || taskDateInput.touched)" class="text-danger ml-2">
+        <div *ngIf="taskDateInput.errors?.['required']">Task target date is required</div>
+    </div>
+    <select class="form-select mt-2 rounded-pill" name="priority" id="priority" [(ngModel)]="createTaskModal.priority" required #taskPriorityInput="ngModel" [ngClass]="{'border border-danger': taskPriorityInput.invalid && (taskPriorityInput.dirty || taskPriorityInput.touched)}">>
         <option value="" disabled selected>Select Priority</option>
         <option value="High">High</option>
         <option value="Medium">Medium</option>
         <option value="Low">Low</option>
     </select>
-    <button class="btn btn-primary mt-2" type="submit" (click)="addTaskToTable()">Add Task To Table</button>
+    <div *ngIf="taskPriorityInput.invalid && (taskPriorityInput.dirty || taskPriorityInput.touched)" class="text-danger ml-2">
+        <div *ngIf="taskPriorityInput.errors?.['required']">Task task priority is required</div>
+    </div>
+    <button class="btn btn-primary mt-2 rounded-pill" type="submit" (click)="addTaskToTable()" [disabled]="!taskForm.valid">Add Task To Table</button>
 </form>

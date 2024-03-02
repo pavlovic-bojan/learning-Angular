@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-todo-form',
