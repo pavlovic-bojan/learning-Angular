@@ -2,7 +2,7 @@
     <input class="form-control rounded-pill" type="text" name="task" id="task" placeholder="Add Task Title" [(ngModel)]="createTaskModal.task" required minlength="5" #taskInput="ngModel" [ngClass]="{'border border-danger': taskInput.invalid && (taskInput.dirty || taskInput.touched)}">
     <div *ngIf="taskInput.invalid && (taskInput.dirty || taskInput.touched)" class="text-danger">
         <div *ngIf="taskInput.errors?.['required']">Task Title is required</div>
-        <div *ngIf="taskInput.errors?.['minlength']">Task Title must be at least 5 characters long</div>
+        <div *ngIf="taskInput.errors?.['minlength']">Task Title must be at least 5 characters long!</div>
     </div>
     <textarea class="form-control mt-2 rounded" id="description" name="description" placeholder="Add Task Description" rows="3" [(ngModel)]="createTaskModal.description" required minlength="100" #taskDescriptionInput="ngModel" [ngClass]="{'border border-danger': taskDescriptionInput.invalid && (taskDescriptionInput.dirty || taskDescriptionInput.touched)}"></textarea>
     <div *ngIf="taskDescriptionInput.invalid && (taskDescriptionInput.dirty || taskDescriptionInput.touched)" class="text-danger">
