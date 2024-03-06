@@ -1,0 +1,21 @@
+.container{
+    background-color: #f3e1cb;
+}
+ul {
+    list-style-type: none;
+  }
+
+  .mainDiv{
+    background-color: #fff;
+    border-radius: 30px;
+}
+
+.notes{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background-color: #F2F2F2;
+    border-radius: 10px;
+}
